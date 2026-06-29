@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Information</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+  :root{
+    --bg:#DDDDD9;
+    --ink:#111110;
+    --muted:#74746D;
+    --line:#C9C9C4;
+    --sidebar:240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  .sidebar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:var(--sidebar);
+    height:100vh;
+    padding:32px 28px;
+    display:flex;
+    flex-direction:column;
+    border-right:1px solid var(--line);
+    background:var(--bg);
+    z-index:20;
+  }
+  .sidebar .name{font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:28px;}
+  .sidebar nav{display:flex;flex-direction:column;gap:4px;}
+  .sidebar nav a{font-size:15px;color:var(--ink);transition:color .2s;width:fit-content;}
+  .sidebar nav a:hover,.sidebar nav a.active{color:var(--muted);}
+  .sidebar .foot{margin-top:auto;font-size:12px;color:var(--muted);line-height:1.4;}
+
+  main{
+    margin-left:var(--sidebar);
+    padding:40px 46px 80px;
+  }
+  .info{
+    display:flex;
+    flex-direction:column;
+    gap:56px;
+    max-width:1180px;
+  }
+  .section{
+    display:grid;
+    grid-template-columns:280px minmax(0, 1fr);
+    gap:44px;
+    align-items:start;
+  }
+  .section h2{
+    font-size:18px;
+    font-weight:700;
+    letter-spacing:-.02em;
+  }
+  .list{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .row{
+    display:grid;
+    grid-template-columns:minmax(0, 1fr) 72px;
+    gap:24px;
+    align-items:baseline;
+  }
+  .entry{
+    font-size:16px;
+    line-height:1.45;
+  }
+  .entry strong{font-weight:700;}
+  .entry a{
+    text-decoration:underline;
+    text-decoration-thickness:1px;
+    text-underline-offset:0.14em;
+  }
+  .entry a:hover{color:var(--muted);}
+  .year{
+    color:var(--muted);
+    font-size:16px;
+    text-align:right;
+    white-space:nowrap;
+  }
+
+  @media (max-width:980px){
+    .section{
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+  }
+
+  @media (max-width:760px){
+    .sidebar{
+      position:static;
+      width:auto;
+      height:auto;
+      flex-direction:row;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 20px;
+    }
+    .sidebar .name{margin-bottom:0;font-size:18px;}
+    .sidebar nav{flex-direction:row;gap:16px;}
+    .sidebar .foot{display:none;}
+    main{margin-left:0;padding:20px 20px 56px;}
+    .info{gap:40px;}
+    .row{
+      grid-template-columns:1fr;
+      gap:2px;
+    }
+    .year{text-align:left;font-size:14px;}
+  }
+
+  a:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+</style>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <a href="index.html" class="name">Kyeongho Park</a>
+    <nav>
+      <a href="index.html">Projects</a>
+      <a href="information.html" class="active">Information</a>
+    </nav>
+    <div class="foot">&copy; 2026 Kyeongho Park<br>Portfolio</div>
+  </aside>
+
+  <main>
+    <div class="info">
+
+      <section class="section">
+        <h2>Awards &amp; Honors</h2>
+        <div class="list">
+          <div class="row">
+            <div class="entry"><strong>IDEA (International Design Excellence Award)</strong> - Professional Bronze</div>
+            <div class="year">2025</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>James Dyson award</strong> - Global Top 20</div>
+            <div class="year">2024</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>James Dyson award</strong> - National Winner</div>
+            <div class="year">2024</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>IF Student award</strong> - Winner</div>
+            <div class="year">2024</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>Lexus design award</strong> - Winner, received approx. USD 20,000 in sponsorship.</div>
+            <div class="year">2023</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>Prototype for humanity</strong> - Top100</div>
+            <div class="year">2024</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>Korea &amp; Sweden design award</strong> - Winner, sponsored by IKEA</div>
+            <div class="year">2023</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>LG electronics robot incubation</strong> - Winner</div>
+            <div class="year">2022</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>Daejeon Tram competition</strong> - Winner, Daejeon Metropolitan Council</div>
+            <div class="year">2024</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>Korea Design Exhibition</strong> - Finalist</div>
+            <div class="year">2023</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>Kikerland award</strong> - Honorable mentioned</div>
+            <div class="year">2023</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>Pin-up design award</strong> - Finalist</div>
+            <div class="year">2022</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>D2B design Fair</strong> - Finalist</div>
+            <div class="year">2022</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>Universal design award</strong> - Winner</div>
+            <div class="year">2022</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Exhibitions</h2>
+        <div class="list">
+          <div class="row">
+            <div class="entry"><strong>Dubai for Future</strong> / Dubai, UAE</div>
+            <div class="year">2024</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>Design Korea</strong> / Seoul, South Korea</div>
+            <div class="year">2023</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>Shape by air (Lexus)</strong> / Milan, Italy</div>
+            <div class="year">2023</div>
+          </div>
+          <div class="row">
+            <div class="entry"><strong>Midtown hibaya (Lexus)</strong> / Tokyo, Japan</div>
+            <div class="year">2023</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Press</h2>
+        <div class="list">
+          <div class="row">
+            <div class="entry"><a href="https://www.mk.co.kr/en/business/11211982" target="_blank" rel="noreferrer"><strong>MK</strong> - Korea+Sweden Young Design Award to discover and foster young Korean designers</a></div>
+            <div class="year">2025</div>
+          </div>
+          <div class="row">
+            <div class="entry"><a href="https://www.kaist.ac.kr/news/html/news/?mode=V&mng_no=40450&skey=keyword&sval=%4f%78%79%6e%69%7a%65%72&list_s_date=&list_e_date=&GotoPage=1" target="_blank" rel="noreferrer"><strong>KAIST News</strong> - Oxynizer selected for the James Dyson Award Top 20</a></div>
+            <div class="year">2024</div>
+          </div>
+          <div class="row">
+            <div class="entry"><a href="https://www.dongascience.com/en/news/67961" target="_blank" rel="noreferrer"><strong>DongA Science</strong> - [Sci-Tech NOW] KAIST's Oxygen Generator Makes James Dyson Award Top 20, and More</a></div>
+            <div class="year">2024</div>
+          </div>
+          <div class="row">
+            <div class="entry"><a href="https://www.yna.co.kr/view/AKR20241016060900063" target="_blank" rel="noreferrer"><strong>Yonhap News</strong> - KAIST-developed oxygen generator selected for Dyson Award Top 20</a></div>
+            <div class="year">2024</div>
+          </div>
+          <div class="row">
+            <div class="entry"><a href="https://www.koreabiomed.com/news/articleView.html?idxno=25406" target="_blank" rel="noreferrer"><strong>Korea Biomedical Review</strong> - KAIST team makes top 20 at Dyson award with innovative electricity-free oxygen generator</a></div>
+            <div class="year">2024</div>
+          </div>
+          <div class="row">
+            <div class="entry"><a href="https://www.koreatimes.co.kr/business/tech-science/20241020/kaist-team-makes-top-20-at-dyson-award-with-innovative-electricity-free-oxygen-generator" target="_blank" rel="noreferrer"><strong>The Korea Times</strong> - KAIST team makes top 20 at Dyson award with innovative electricity-free oxygen generator</a></div>
+            <div class="year">2024</div>
+          </div>
+          <div class="row">
+            <div class="entry"><a href="https://www.asiae.co.kr/en/article/2023061214061988193" target="_blank" rel="noreferrer"><strong>The Asia Business Daily</strong> - Korea-Sweden Contest Nurturing Emerging Designers... Eco-Friendly Works Awarded</a></div>
+            <div class="year">2023</div>
+          </div>
+          <div class="row">
+            <div class="entry"><a href="https://www.ikea.com/kr/en/newsroom/corporate-news/2023-korea-sweden-young-design-awards-ceremony-held-pubf9a6d7d0/" target="_blank" rel="noreferrer"><strong>IKEA</strong> - 2023 Korea+Sweden Young Design Awards Ceremony Held</a></div>
+            <div class="year">2023</div>
+          </div>
+          <div class="row">
+            <div class="entry"><a href="https://www.designdb.com/?menuno=1379&bbsno=557&siteno=15&act=view&ztag=rO0ABXQAOjxjYWxsIHR5cGU9ImJvYXJkIiBubz0iMTAwOSIgc2tpbj0icGhvdG9fYmJzXzIwMTkiPjwvY2FsbD4%3D#gsc.tab=0" target="_blank" rel="noreferrer"><strong>DesignDB</strong> - 제4회 코리아+스웨덴 영 디자인 어워드 수상자 인터뷰</a></div>
+            <div class="year">2023</div>
+          </div>
+          <div class="row">
+            <div class="entry"><a href="https://www.youtube.com/watch?v=MF0JHpk5XZw" target="_blank" rel="noreferrer"><strong>YouTube (KIDP)</strong> - 제4회 코리아+스웨덴 영 디자인 어워드 수상자 인터뷰 | 박경호</a></div>
+            <div class="year">2025</div>
+          </div>
+          <div class="row">
+            <div class="entry"><a href="https://www.lux-mag.com/lexus-design-awards-2023-at-salone-del-mobile/" target="_blank" rel="noreferrer"><strong>LUX Magazine</strong> - Lexus Design Awards 2023 at Salone del Mobile</a></div>
+            <div class="year">2023</div>
+          </div>
+          <div class="row">
+            <div class="entry"><a href="https://www.lexus.eu/discover-lexus/design/lexus-design-award-2023-winners-announced" target="_blank" rel="noreferrer"><strong>Lexus Europe</strong> - Lexus Design Award 2023: Winners Announced</a></div>
+            <div class="year">2023</div>
+          </div>
+          <div class="row">
+            <div class="entry"><a href="https://www.designboom.com/design/lexus-design-award-2023-winner-announcement-02-27-2023/" target="_blank" rel="noreferrer"><strong>designboom</strong> - Lexus Design Award 2023 winner announcement</a></div>
+            <div class="year">2023</div>
+          </div>
+          <div class="row">
+            <div class="entry"><a href="https://www.creativeboom.com/insight/these-lexus-design-award-winners-suggest-we-can-have-nice-things-without-ruining-the-planet/" target="_blank" rel="noreferrer"><strong>Creative Boom</strong> - Lexus Design Award winners suggest we can have nice things, without ruining the planet</a></div>
+            <div class="year">2023</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+</body>
+</html>

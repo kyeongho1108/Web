@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Beyond the Glass</title>
+<title>BubbleTalk</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
@@ -52,7 +52,6 @@
 
   .figure{background:var(--tint);overflow:hidden;}
   .figure img{width:100%;height:100%;object-fit:cover;display:block;}
-
   .figure.hero{
     background:transparent;
     margin-bottom:12px;
@@ -94,6 +93,15 @@
     font-size:15px;
     letter-spacing:.04em;
   }
+  .figure.split .ph{
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#C4C4BE;
+    font-size:15px;
+    letter-spacing:.04em;
+  }
 
   .block{padding:var(--block-space) 0;}
   .meta-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
@@ -107,9 +115,7 @@
     font-size:16px;
     line-height:1.62;
   }
-  .caption.right{
-    text-align:right;
-  }
+  .caption.right{text-align:right;}
 
   .pager{
     display:flex;
@@ -168,8 +174,8 @@
       <figure class="figure hero">
         <div class="hero-media">
           <iframe
-            src="https://www.youtube.com/embed/OsKKB0zJXNI?autoplay=1&mute=1&loop=1&playlist=OsKKB0zJXNI&playsinline=1"
-            title="Beyond the Glass video"
+            src="https://www.youtube.com/embed/PNOnlboRsYo?autoplay=1&mute=1&loop=1&playlist=PNOnlboRsYo&playsinline=1"
+            title="BubbleTalk video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen>
@@ -180,65 +186,46 @@
       <section class="block">
         <div class="meta-row">
           <div class="reveal">
-            <div class="title">Beyond the Glass (2026)</div>
-            <div class="credit">Designed by Kyeongho Park / Wonderlab KAIST</div>
+            <div class="title">BubbleTalk (2025)</div>
+            <div class="credit">Designed by Kyeongho Park, Heeji Kim</div>
           </div>
           <p class="desc reveal">
-          Beyond the Glass is an XR interface for museums that lets visitors explore exhibits and interact with objects displayed inside glass cases.
+            BubbleTalk is an interactive communication project documented through motion, spatial interaction, and supporting visual studies.
           </p>
         </div>
       </section>
-      
+
       <figure class="figure split section-gap">
         <div>
-          <img src="images/beyond/Baseline.webp" alt="Baseline interaction image">
+          <img src="images/Bubble/foot1.webp" alt="BubbleTalk interaction image 1">
         </div>
         <div>
-          <img src="images/beyond/Beyond.webp" alt="Beyond interaction image">
+          <img src="images/Bubble/foot2.webp" alt="BubbleTalk interaction image 2">
         </div>
       </figure>
 
       <figure class="figure split section-gap">
         <div>
-          <img src="images/beyond/Wand.webp" alt="Wand interaction image">
+          <img src="images/Bubble/foo3.webp" alt="BubbleTalk interaction image 3">
         </div>
         <div>
-          <img src="images/beyond/LCD.webp" alt="LCD interaction image">
-        </div>
-      </figure>
-    <p class="caption reveal right" style="padding-top:0;">
-        Three types of interfaces for interacting with museum exhibits(BareHands, Haptic wand, Video See-through).
-      </p>
-
-      <figure class="figure split section-gap">
-        <div>
-          <img src="images/beyond/Transition.gif" alt="Transition interaction image">
-        </div>
-        <div>
-          <img src="images/beyond/Head.gif" alt="Head tracking interaction image">
-        </div>
-      </figure>
-
-      <p class="caption reveal right" style="padding-top:0;">
-        Designed head-tracking interactions to improve transitions and depth, creating a more immersive spatial experience.
-      </p>
-      <figure class="figure split section-gap">
-        <div>
-          <img src="images/beyond/Depthhand.gif" alt="Depth hand interaction image">
-        </div>
-        <div>
-          <img src="images/beyond/Depthwand.gif" alt="Depth wand interaction image">
+          <img src="images/Bubble/foot4.webp" alt="BubbleTalk interaction image 4">
         </div>
       </figure>
       <p class="caption reveal right" style="padding-top:0;">
-        Depth cue design for improved spatial awareness.
+        Add an overview of the communication flow, interaction setup, or the key moment of the experience here.
       </p>
 
-      
+      <figure class="figure process clip section-gap">
+        <div class="ph">Process Image</div>
+      </figure>
+      <p class="caption reveal right" style="padding-top:0;">
+        Use this section for prototypes, tests, iterations, or installation details that support the main video.
+      </p>
 
       <nav class="pager">
-        <a href="project-bell.html">&larr; Previous Project</a>
-        <a href="project-Oxynizer.html">Next Project &rarr;</a>
+        <a href="project-Oxynizer.html">&larr; Previous Project</a>
+        <a href="index.html">Back to List &rarr;</a>
       </nav>
 
     </div>
