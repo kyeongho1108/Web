@@ -4,372 +4,135 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ▼▼▼ 여기 제목/설명만 본인 걸로 바꾸면 돼요 ▼▼▼ -->
-<title>김작업 — 디자이너 & 개발자</title>
-<meta name="description" content="디자인과 개발을 함께 하는 김작업의 포트폴리오입니다.">
-<!-- ▲▲▲ -->
+<!-- ▼ 제목/이름만 본인 걸로 바꾸세요 ▼ -->
+<title>이름 — 포트폴리오</title>
+<meta name="description" content="디자인과 개발 포트폴리오">
 
-<!-- 폰트: 한글은 Pretendard, 라벨/번호는 모노스페이스 -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
 <style>
   :root{
-    --bg:        #FAFAF8;   /* 배경: 아주 옅은 따뜻한 흰색 */
-    --ink:       #161614;   /* 본문 글자: 거의 검정 */
-    --muted:     #6C6C66;   /* 보조 글자: 회색 */
-    --hairline:  #E4E3DD;   /* 얇은 구분선 */
-    --tint:      #EFEEE8;   /* 이미지 자리 배경 */
-    --accent:    #2C3BD6;   /* 포인트: 잉크 블루 (링크/호버에만 아주 가끔) */
-
-    --maxw: 1080px;
-    --ease: cubic-bezier(.22,.61,.36,1);
+    --bg:#DDDDD9; --ink:#111110; --muted:#74746D; --line:#C9C9C4; --tint:#E8E8E4;
+    --sidebar:240px; --ease:cubic-bezier(.22,.61,.36,1);
   }
-
-  *{ box-sizing:border-box; margin:0; padding:0; }
-
-  html{ scroll-behavior:smooth; }
-
+  *{box-sizing:border-box;margin:0;padding:0;}
   body{
-    background:var(--bg);
-    color:var(--ink);
+    background:var(--bg);color:var(--ink);
     font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;
-    font-size:17px;
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-    text-rendering:optimizeLegibility;
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+
+  /* ───────── 왼쪽 고정 사이드바 ───────── */
+  .sidebar{
+    position:fixed;top:0;left:0;width:var(--sidebar);height:100vh;
+    padding:32px 28px;display:flex;flex-direction:column;
+    border-right:1px solid var(--line);background:var(--bg);z-index:20;
+  }
+  .sidebar .name{font-size:22px;font-weight:700;letter-spacing:-.02em;margin-bottom:28px;}
+  .sidebar nav{display:flex;flex-direction:column;gap:4px;}
+  .sidebar nav a{font-size:15px;color:var(--ink);transition:color .2s;width:fit-content;}
+  .sidebar nav a:hover,.sidebar nav a.active{color:var(--muted);}
+  .sidebar .foot{margin-top:auto;font-size:12px;color:var(--muted);line-height:1.4;}
+
+  /* ───────── 오른쪽 본문 ───────── */
+  main{margin-left:var(--sidebar);padding:0;}
+
+  /* 프로젝트 갤러리 */
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+  .item{position:relative;display:block;overflow:hidden;background:var(--tint);aspect-ratio:4/5;}
+  .item img{width:100%;height:100%;object-fit:cover;display:block;
+    transition:transform .9s var(--ease);}
+  .item:hover img{transform:scale(1.03);}
+  /* 이미지 없을 때 자리 표시 (이미지 넣으면 가려짐) */
+  .item .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    color:#C4C4BE;font-size:15px;letter-spacing:.04em;}
+  .item .label{
+    position:absolute;left:0;bottom:0;right:0;padding:20px 22px;
+    display:flex;justify-content:space-between;align-items:baseline;
+    color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.55));
+    opacity:0;transform:translateY(8px);transition:opacity .4s,transform .4s var(--ease);
+  }
+  .item:hover .label{opacity:1;transform:none;}
+  .item .label .t{font-size:16px;font-weight:600;}
+  .item .label .y{font-size:13px;opacity:.8;}
+
+  /* 스크롤 등장 */
+  .reveal{opacity:0;transform:translateY(20px);
+    transition:opacity .8s var(--ease),transform .8s var(--ease);}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ───────── 모바일: 사이드바를 상단 바로 ───────── */
+  @media (max-width:760px){
+    .sidebar{position:static;width:auto;height:auto;flex-direction:row;
+      align-items:center;justify-content:space-between;padding:18px 20px;}
+    .sidebar .name{margin-bottom:0;font-size:18px;}
+    .sidebar nav{flex-direction:row;gap:16px;}
+    .sidebar .foot{display:none;}
+    main{margin-left:0;}
+    .gallery{grid-template-columns:1fr;}
+    .item{aspect-ratio:4/3;}
+    .item .label{opacity:1;transform:none;}
   }
 
-  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 28px; }
-
-  /* 모노스페이스 라벨 (섹션 표시, 번호, 태그) — 디자인+개발 정체성의 시그니처 */
-  .mono{
-    font-family:"JetBrains Mono",monospace;
-    font-size:12px;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-    color:var(--muted);
-  }
-
-  a{ color:inherit; }
-
-  /* ───────────── 상단 고정 바 ───────────── */
-  header{
-    position:fixed; top:0; left:0; right:0; z-index:50;
-    background:color-mix(in srgb, var(--bg) 82%, transparent);
-    backdrop-filter:blur(8px);
-    border-bottom:1px solid transparent;
-    transition:border-color .3s var(--ease);
-  }
-  header.scrolled{ border-color:var(--hairline); }
-  header .wrap{
-    height:64px; display:flex; align-items:center; justify-content:space-between;
-  }
-  .brand{ font-weight:600; font-size:15px; letter-spacing:-.01em; text-decoration:none; }
-  .nav{ display:flex; gap:26px; }
-  .nav a{ text-decoration:none; font-size:14px; color:var(--muted); transition:color .2s; }
-  .nav a:hover{ color:var(--ink); }
-  @media (max-width:560px){ .nav{ display:none; } }
-
-  /* ───────────── 히어로 ───────────── */
-  .hero{ padding:180px 0 120px; }
-  .hero .eyebrow{ margin-bottom:28px; }
-  .hero h1{
-    font-size:clamp(38px, 8vw, 88px);
-    line-height:1.02;
-    letter-spacing:-.035em;
-    font-weight:700;
-  }
-  .hero h1 .light{ color:var(--muted); font-weight:600; }
-  .hero p.lead{
-    margin-top:32px; max-width:46ch;
-    font-size:clamp(17px,2.2vw,21px); color:var(--muted); line-height:1.6;
-  }
-  .scrollcue{
-    margin-top:64px; display:inline-flex; align-items:center; gap:10px;
-    text-decoration:none;
-  }
-  .scrollcue .line{
-    width:42px; height:1px; background:var(--ink);
-    transform-origin:left; animation:cue 2.4s var(--ease) infinite;
-  }
-  @keyframes cue{ 0%,100%{ transform:scaleX(.4); opacity:.4 } 50%{ transform:scaleX(1); opacity:1 } }
-
-  /* ───────────── 섹션 공통 ───────────── */
-  section{ padding:96px 0; }
-  .sec-head{
-    display:flex; align-items:baseline; gap:18px;
-    padding-bottom:36px; margin-bottom:48px;
-    border-bottom:1px solid var(--hairline);
-  }
-  .sec-head h2{ font-size:clamp(22px,3vw,30px); font-weight:600; letter-spacing:-.02em; }
-
-  /* 소개 */
-  .intro p{
-    font-size:clamp(20px,2.6vw,28px); line-height:1.5; letter-spacing:-.01em;
-    max-width:24ch; font-weight:500;
-  }
-  .intro .body{
-    margin-top:28px; max-width:52ch; font-size:17px; color:var(--muted); font-weight:400;
-  }
-  .intro-grid{ display:grid; grid-template-columns:1fr 1fr; gap:48px; }
-  @media (max-width:720px){ .intro-grid{ grid-template-columns:1fr; gap:28px; } }
-
-  /* ───────────── 작업 목록 ───────────── */
-  .work{
-    display:grid; grid-template-columns:1fr 1.25fr; gap:40px;
-    padding:56px 0; border-bottom:1px solid var(--hairline); align-items:center;
-  }
-  .work:first-of-type{ padding-top:0; }
-  @media (max-width:760px){ .work{ grid-template-columns:1fr; gap:24px; } }
-
-  .work .meta .index{ margin-bottom:18px; }
-  .work .meta h3{ font-size:clamp(24px,3.4vw,34px); font-weight:600; letter-spacing:-.02em; line-height:1.1; }
-  .work .meta .desc{ margin-top:16px; color:var(--muted); max-width:38ch; }
-  .work .tags{ margin-top:22px; display:flex; flex-wrap:wrap; gap:8px; }
-  .work .tags span{
-    font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.04em;
-    color:var(--muted); border:1px solid var(--hairline);
-    padding:4px 10px; border-radius:100px;
-  }
-  .work .link{
-    margin-top:24px; display:inline-flex; align-items:center; gap:8px;
-    text-decoration:none; font-size:14px; font-weight:500;
-    border-bottom:1px solid var(--ink); padding-bottom:2px;
-    transition:color .2s, border-color .2s;
-  }
-  .work .link:hover{ color:var(--accent); border-color:var(--accent); }
-
-  /* 이미지 자리: <img>를 넣으면 그대로 채워져요 */
-  .thumb{
-    position:relative; aspect-ratio:4/3; background:var(--tint);
-    border-radius:6px; overflow:hidden;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .thumb img{ width:100%; height:100%; object-fit:cover; display:block; }
-  /* 이미지 없을 때 보이는 큰 번호 (이미지 넣으면 가려짐) */
-  .thumb .placeholder{
-    font-family:"JetBrains Mono",monospace; font-size:64px; font-weight:500;
-    color:#CFCEC6;
-  }
-
-  /* ───────────── 연락처 ───────────── */
-  .contact{ padding:120px 0; }
-  .contact h2{ font-size:clamp(30px,6vw,60px); font-weight:700; letter-spacing:-.03em; line-height:1.05; }
-  .contact .mail{
-    display:inline-block; margin-top:28px; font-size:clamp(18px,3vw,26px);
-    text-decoration:none; border-bottom:2px solid var(--ink); padding-bottom:4px;
-    transition:color .2s, border-color .2s;
-  }
-  .contact .mail:hover{ color:var(--accent); border-color:var(--accent); }
-  .socials{ margin-top:48px; display:flex; gap:24px; }
-  .socials a{ text-decoration:none; font-size:14px; color:var(--muted); transition:color .2s; }
-  .socials a:hover{ color:var(--ink); }
-
-  footer{ padding:40px 0; border-top:1px solid var(--hairline); }
-  footer .wrap{ display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
-
-  /* ───────────── 스크롤 등장 애니메이션 ───────────── */
-  .reveal{ opacity:0; transform:translateY(24px); transition:opacity .8s var(--ease), transform .8s var(--ease); }
-  .reveal.in{ opacity:1; transform:none; }
-  .reveal.d1{ transition-delay:.08s } .reveal.d2{ transition-delay:.16s } .reveal.d3{ transition-delay:.24s }
-
-  /* 이미지 클립 등장 */
-  .clip{ clip-path:inset(0 0 100% 0); transition:clip-path 1s var(--ease); }
-  .clip.in{ clip-path:inset(0 0 0 0); }
-
-  /* 히어로 로드 애니메이션 */
-  .rise{ opacity:0; transform:translateY(28px); }
-  .loaded .rise{ opacity:1; transform:none; transition:opacity .9s var(--ease), transform .9s var(--ease); }
-  .loaded .rise.r1{ transition-delay:.05s } .loaded .rise.r2{ transition-delay:.18s }
-  .loaded .rise.r3{ transition-delay:.32s } .loaded .rise.r4{ transition-delay:.5s }
-
-  /* 키보드 포커스 접근성 */
-  a:focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
-
-  /* 모션 줄이기 설정 존중 */
+  a:focus-visible{outline:2px solid var(--ink);outline-offset:-2px;}
   @media (prefers-reduced-motion:reduce){
-    *{ animation:none !important; }
-    .reveal,.clip,.rise{ opacity:1 !important; transform:none !important; clip-path:none !important; transition:none !important; }
-    html{ scroll-behavior:auto; }
+    *{transition:none!important;}
+    .reveal{opacity:1!important;transform:none!important;}
   }
 </style>
 </head>
 <body>
 
-<!-- ════════ 상단 바 ════════ -->
-<header id="topbar">
-  <div class="wrap">
-    <a href="#top" class="brand">김작업</a>
-    <nav class="nav">
-      <a href="#work">작업</a>
-      <a href="#about">소개</a>
-      <a href="#contact">연락</a>
+  <!-- 왼쪽 사이드바 (모든 페이지 공통) -->
+  <aside class="sidebar">
+    <a href="index.html" class="name">이름</a>
+    <nav>
+      <a href="index.html" class="active">Projects</a>
+      <a href="information.html">Information</a>
     </nav>
-  </div>
-</header>
+    <div class="foot">© 2026 이름<br>Portfolio</div>
+  </aside>
 
-<main id="top">
+  <main>
+    <!--
+      ▼ 프로젝트 하나를 추가하려면 <a class="item">...</a> 블록을 복사해서
+        href(연결할 상세 페이지), 제목, 연도, 이미지만 바꾸세요.
+        이미지 넣기: .ph 줄을 지우고 <img> 주석을 풀어 src를 바꾸면 돼요.
+    -->
+    <div class="gallery">
 
-  <!-- ════════ 히어로 ════════ -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="mono eyebrow rise r1">Portfolio — 2026</div>
-      <h1>
-        <span class="rise r2">디자인하고<br></span>
-        <span class="rise r3"><span class="light">코드로 만듭니다.</span></span>
-      </h1>
-      <p class="lead rise r4">
-        브랜드와 화면을 설계하는 디자이너이자, 그것을 직접 구현하는 개발자입니다.
-        보기 좋은 것과 작동하는 것 사이를 메웁니다.
-      </p>
-      <a href="#work" class="scrollcue mono rise r4">
-        <span class="line"></span> 작업 보기
+      <a href="project.html" class="item reveal">
+        <span class="ph">Project 01</span>
+        <!-- <img src="images/p1-cover.jpg" alt="프로젝트 1"> -->
+        <span class="label"><span class="t">프로젝트 제목 01</span><span class="y">2025</span></span>
       </a>
-    </div>
-  </section>
 
-  <!-- ════════ 소개 ════════ -->
-  <section id="about" class="intro">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="mono">01</span>
-        <h2>소개</h2>
-      </div>
-      <div class="intro-grid">
-        <p class="reveal">두 언어를 쓰는 사람입니다. 시각의 언어와, 코드의 언어.</p>
-        <div class="body reveal d1">
-          <!-- ▼ 자기소개를 본인 이야기로 바꿔주세요 -->
-          5년차 디자이너이자 프론트엔드 개발자입니다. UI/UX 디자인부터 실제 구현까지
-          하나의 흐름으로 다루는 걸 좋아합니다. 작은 디테일이 경험을 바꾼다고 믿고,
-          불필요한 것을 덜어내는 데서 출발합니다.
-          최근에는 인터랙션과 모션 디자인에 집중하고 있어요.
-        </div>
-      </div>
-    </div>
-  </section>
+      <a href="project.html" class="item reveal">
+        <span class="ph">Project 02</span>
+        <!-- <img src="images/p2-cover.jpg" alt="프로젝트 2"> -->
+        <span class="label"><span class="t">프로젝트 제목 02</span><span class="y">2025</span></span>
+      </a>
 
-  <!-- ════════ 작업 ════════ -->
-  <section id="work">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <span class="mono">02</span>
-        <h2>선택한 작업</h2>
-      </div>
+      <a href="project.html" class="item reveal">
+        <span class="ph">Project 03</span>
+        <!-- <img src="images/p3-cover.jpg" alt="프로젝트 3"> -->
+        <span class="label"><span class="t">프로젝트 제목 03</span><span class="y">2024</span></span>
+      </a>
 
-      <!--
-        ▼▼▼ 작업 하나를 추가하려면 아래 <article class="work"> ... </article> 블록을
-            통째로 복사해서 붙여넣고 내용만 바꾸면 돼요.
-            이미지를 넣을 땐 .thumb 안의 주석을 참고하세요. ▼▼▼
-      -->
-
-      <!-- 작업 1 (디자인) -->
-      <article class="work">
-        <div class="meta">
-          <div class="mono index reveal">— 001 / 디자인</div>
-          <h3 class="reveal d1">브랜드 아이덴티티 리뉴얼</h3>
-          <p class="desc reveal d2">로컬 카페 브랜드의 로고, 패키지, 메뉴 시스템을 새로 설계했습니다. 따뜻함과 정돈됨 사이의 균형을 찾는 작업이었어요.</p>
-          <div class="tags reveal d2"><span>Branding</span><span>Identity</span><span>Print</span></div>
-          <a href="#" class="link reveal d3">자세히 보기 →</a>
-        </div>
-        <div class="thumb clip">
-          <!-- 이미지 넣기: 아래 placeholder 줄을 지우고 <img>의 주석을 풀어 src만 바꾸세요 -->
-          <span class="placeholder">001</span>
-          <!-- <img src="images/work-1.jpg" alt="브랜드 아이덴티티 리뉴얼"> -->
-        </div>
-      </article>
-
-      <!-- 작업 2 (개발) -->
-      <article class="work">
-        <div class="meta">
-          <div class="mono index reveal">— 002 / 개발</div>
-          <h3 class="reveal d1">실시간 대시보드 웹앱</h3>
-          <p class="desc reveal d2">데이터를 한눈에 보여주는 반응형 대시보드를 기획하고 직접 구현했습니다. 차트 인터랙션과 다크 모드를 지원합니다.</p>
-          <div class="tags reveal d2"><span>React</span><span>TypeScript</span><span>D3.js</span></div>
-          <a href="#" class="link reveal d3">GitHub 보기 →</a>
-        </div>
-        <div class="thumb clip">
-          <span class="placeholder">002</span>
-          <!-- <img src="images/work-2.jpg" alt="실시간 대시보드 웹앱"> -->
-        </div>
-      </article>
-
-      <!-- 작업 3 (디자인) -->
-      <article class="work">
-        <div class="meta">
-          <div class="mono index reveal">— 003 / 디자인</div>
-          <h3 class="reveal d1">모바일 앱 UI 설계</h3>
-          <p class="desc reveal d2">사용자 흐름부터 화면 디자인까지, 명상 앱의 전체 인터페이스를 설계했습니다. 차분한 톤과 부드러운 전환을 중심에 뒀어요.</p>
-          <div class="tags reveal d2"><span>UI/UX</span><span>Figma</span><span>Prototyping</span></div>
-          <a href="#" class="link reveal d3">자세히 보기 →</a>
-        </div>
-        <div class="thumb clip">
-          <span class="placeholder">003</span>
-          <!-- <img src="images/work-3.jpg" alt="모바일 앱 UI 설계"> -->
-        </div>
-      </article>
-
-      <!-- 작업 4 (개발) -->
-      <article class="work">
-        <div class="meta">
-          <div class="mono index reveal">— 004 / 개발</div>
-          <h3 class="reveal d1">인터랙티브 포트폴리오</h3>
-          <p class="desc reveal d2">스크롤에 반응하는 애니메이션을 라이브러리 없이 직접 구현했습니다. 지금 보고 계신 이 페이지가 그 예시예요.</p>
-          <div class="tags reveal d2"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          <a href="#" class="link reveal d3">GitHub 보기 →</a>
-        </div>
-        <div class="thumb clip">
-          <span class="placeholder">004</span>
-          <!-- <img src="images/work-4.jpg" alt="인터랙티브 포트폴리오"> -->
-        </div>
-      </article>
+      <a href="project.html" class="item reveal">
+        <span class="ph">Project 04</span>
+        <!-- <img src="images/p4-cover.jpg" alt="프로젝트 4"> -->
+        <span class="label"><span class="t">프로젝트 제목 04</span><span class="y">2024</span></span>
+      </a>
 
     </div>
-  </section>
+  </main>
 
-  <!-- ════════ 연락처 ════════ -->
-  <section id="contact" class="contact">
-    <div class="wrap">
-      <div class="mono reveal" style="margin-bottom:24px;">03 — 연락</div>
-      <h2 class="reveal d1">함께 만들 게 있다면<br>언제든 연락주세요.</h2>
-      <!-- ▼ 이메일/링크를 본인 것으로 바꿔주세요 -->
-      <a href="mailto:hello@example.com" class="mail reveal d2">hello@example.com</a>
-      <div class="socials reveal d2">
-        <a href="#" target="_blank" rel="noopener">GitHub ↗</a>
-        <a href="#" target="_blank" rel="noopener">Instagram ↗</a>
-        <a href="#" target="_blank" rel="noopener">Behance ↗</a>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <div class="wrap mono">
-    <span>© 2026 김작업</span>
-    <span>Made with HTML · CSS · JS</span>
-  </div>
-</footer>
-
-<script>
-  // 로드되면 히어로 애니메이션 시작
-  window.addEventListener('load', () => document.body.classList.add('loaded'));
-
-  // 상단 바: 스크롤하면 구분선 표시
-  const bar = document.getElementById('topbar');
-  addEventListener('scroll', () => bar.classList.toggle('scrolled', scrollY > 8));
-
-  // 스크롤 등장: 화면에 들어오면 .in 추가
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
-
-  document.querySelectorAll('.reveal, .clip').forEach(el => io.observe(el));
-</script>
-
+  <script>
+    const io=new IntersectionObserver((es)=>{es.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    });},{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
 </body>
 </html>
