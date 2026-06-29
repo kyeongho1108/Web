@@ -4,8 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ▼ 프로젝트 제목으로 바꾸세요 ▼ -->
-<title>Project Template</title>
+<title>Project 04</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
@@ -21,7 +20,6 @@
   }
   a{color:inherit;text-decoration:none;}
 
-  /* 왼쪽 고정 사이드바 (index와 동일) */
   .sidebar{
     position:fixed;top:0;left:0;width:var(--sidebar);height:100vh;
     padding:32px 28px;display:flex;flex-direction:column;
@@ -33,29 +31,24 @@
   .sidebar nav a:hover,.sidebar nav a.active{color:var(--muted);}
   .sidebar .foot{margin-top:auto;font-size:12px;color:var(--muted);line-height:1.4;}
 
-  /* 본문 */
   main{margin-left:var(--sidebar);padding:0 0 120px;}
 
-  /* 큰 이미지 (꽉 차게) */
   .figure{background:var(--tint);overflow:hidden;}
   .figure img{width:100%;height:auto;display:block;}
   .figure .ph{
     aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;
     color:#C4C4BE;font-size:15px;letter-spacing:.04em;
   }
-  /* 두 장 나란히 */
   .figure.split{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:transparent;}
   .figure.split > div{background:var(--tint);overflow:hidden;}
   .figure.split .ph{aspect-ratio:3/4;}
 
-  /* 텍스트 블록 (제목·크레딧 / 설명) */
   .block{padding:64px 56px;}
   .meta-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
   .meta-row .title{font-size:22px;font-weight:600;letter-spacing:-.01em;line-height:1.35;}
   .meta-row .credit{color:var(--muted);margin-top:6px;}
   .meta-row .desc{font-size:17px;line-height:1.62;}
 
-  /* 이미지 + 설명 캡션 (스크롤하며 등장) */
   .caption{padding:40px 56px 0;max-width:760px;margin-left:auto;
     color:var(--ink);font-size:16px;line-height:1.62;}
 
@@ -63,20 +56,17 @@
     .meta-row{grid-template-columns:1fr;gap:18px;}
   }
 
-  /* 하단 네비게이션 */
   .pager{display:flex;justify-content:space-between;padding:48px 56px 0;
     border-top:1px solid var(--line);margin-top:64px;font-size:15px;}
   .pager a{color:var(--muted);transition:color .2s;}
   .pager a:hover{color:var(--ink);}
 
-  /* 스크롤 등장 */
   .reveal{opacity:0;transform:translateY(22px);
     transition:opacity .9s var(--ease),transform .9s var(--ease);}
   .reveal.in{opacity:1;transform:none;}
   .clip{clip-path:inset(0 0 100% 0);transition:clip-path 1.1s var(--ease);}
   .clip.in{clip-path:inset(0 0 0 0);}
 
-  /* 모바일: 사이드바 상단 바 */
   @media (max-width:760px){
     .sidebar{position:static;width:auto;height:auto;flex-direction:row;
       align-items:center;justify-content:space-between;padding:18px 20px;}
@@ -103,66 +93,51 @@
       <a href="index.html" class="active">Projects</a>
       <a href="information.html">Information</a>
     </nav>
-    <div class="foot">© 2026 이름<br>Portfolio</div>
+    <div class="foot">© 2026 Kyeongho Park<br>Portfolio</div>
   </aside>
 
   <main>
 
-    <!-- ① 표지 큰 이미지 -->
     <figure class="figure clip">
-      <div class="ph">대표 이미지 (16:10)</div>
-      <!-- <img src="images/p1-hero.jpg" alt="프로젝트 대표 이미지"> -->
+      <div class="ph">Project 04 Cover</div>
     </figure>
 
-    <!-- ② 제목 · 크레딧 · 설명 -->
     <section class="block">
       <div class="meta-row">
         <div class="reveal">
-          <!-- ▼ 제목과 크레딧 -->
-          <div class="title">프로젝트 제목 (2026)</div>
-          <div class="credit">Designed by Name / Team or Studio</div>
+          <div class="title">Project 04 (2024)</div>
+          <div class="credit">Designed by Kyeongho Park</div>
         </div>
         <p class="desc reveal">
-          <!-- ▼ 프로젝트 한 단락 설명 -->
-          이 프로젝트가 무엇인지, 어떤 문제를 풀었는지 한두 단락으로 설명하는 곳이에요.
-          무엇을 만들었고, 어떤 의도였는지, 결과가 어땠는지를 담으면 좋아요.
-          직관적인 사용 경험을 목표로 형태와 인터랙션을 함께 설계했습니다.
+          This page is ready for your fourth project.
+          Keeping it separate means you can update layout, images, and writing here
+          without affecting the other project pages in the portfolio.
         </p>
       </div>
     </section>
 
-    <!-- ③ 두 장 나란히 이미지 -->
     <figure class="figure split">
-      <div class="clip"><div class="ph">이미지 (3:4)</div>
-        <!-- <img src="images/p1-a.jpg" alt=""> --></div>
-      <div class="clip"><div class="ph">이미지 (3:4)</div>
-        <!-- <img src="images/p1-b.jpg" alt=""> --></div>
+      <div class="clip"><div class="ph">Image A</div></div>
+      <div class="clip"><div class="ph">Image B</div></div>
     </figure>
 
-    <!-- ④ 큰 이미지 + 설명 캡션 -->
     <figure class="figure clip">
-      <div class="ph">과정 이미지 (16:10)</div>
-      <!-- <img src="images/p1-process.jpg" alt="작업 과정"> -->
+      <div class="ph">Process Image</div>
     </figure>
     <p class="caption reveal">
-      <!-- ▼ 이 이미지에 대한 설명 -->
-      이 단계에서 무엇을 했는지 설명하는 캡션이에요. 리서치 과정, 실험,
-      사용자 관찰 같은 내용을 이미지 바로 아래에서 이어서 풀어주면 흐름이 자연스러워요.
+      Add process visuals or implementation details in this section.
     </p>
 
-    <!-- ⑤ 또 다른 이미지 + 설명 (필요한 만큼 ④⑤를 복사해서 늘리세요) -->
     <figure class="figure clip" style="margin-top:96px;">
-      <div class="ph">결과 이미지 (16:10)</div>
-      <!-- <img src="images/p1-final.jpg" alt="최종 결과"> -->
+      <div class="ph">Final Image</div>
     </figure>
     <p class="caption reveal">
-      마지막으로 결과물과 마무리 코멘트를 적는 곳이에요.
+      Use the final section for outcomes, impact, or reflections.
     </p>
 
-    <!-- 하단: 목록으로 / 다음 프로젝트 -->
     <nav class="pager">
-      <a href="index.html">← 목록으로</a>
-      <a href="index.html">목록에서 프로젝트 선택 →</a>
+      <a href="project-03.html">&larr; Previous Project</a>
+      <a href="index.html">Back to List &rarr;</a>
     </nav>
 
   </main>
