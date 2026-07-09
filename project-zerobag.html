@@ -84,27 +84,25 @@
     margin-top:2px;
   }
 
-  .figure.split.tall{
+.figure.split.tall{
   display:grid;
   grid-template-columns:1fr 1fr;
   grid-template-rows:1fr 1fr;
   gap:2px;
 }
 
-.figure.split.tall > div{
-  background:var(--tint);
-  overflow:hidden;
-  min-height:0;
+.figure.split.tall > div:nth-child(1){
+  aspect-ratio:4/3;
 }
 
-.figure.split.tall > div:first-child{
+.figure.split.tall > div:nth-child(2){
+  aspect-ratio:4/3;
+}
+
+.figure.split.tall > div:nth-child(3){
+  grid-column:2;
   grid-row:1 / span 2;
   aspect-ratio:3/5;
-}
-
-.figure.split.tall > div:nth-child(2),
-.figure.split.tall > div:nth-child(3){
-  aspect-ratio:auto;
 }
 
   .figure.process .ph{
@@ -230,13 +228,13 @@
       
       <figure class="figure split tall section-gap">
       <div>
-        <img src="images/zerobag/main.webp" alt="">
+        <img src="images/zerobag/foot1.webp" alt="">
       </div>
       <div>
-      <img src="images/zerobag/top.webp" alt="">
+      <img src="images/zerobag/foot2.webp" alt="">
       </div>
       <div>
-      <img src="images/zerobag/bottom.webp" alt="">
+      <img src="images/zerobag/foot3.webp" alt="">
       </div>
 </figure>
       <p class="caption reveal right" style="padding-top:0;">
