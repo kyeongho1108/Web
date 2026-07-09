@@ -87,17 +87,24 @@
   .figure.split.tall{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:2px;               /* 기존과 동일 */
+  grid-template-rows:1fr 1fr;
+  gap:2px;
+}
+
+.figure.split.tall > div{
+  background:var(--tint);
+  overflow:hidden;
+  min-height:0;
 }
 
 .figure.split.tall > div:first-child{
-  grid-row:span 2;
+  grid-row:1 / span 2;
   aspect-ratio:3/5;
 }
 
 .figure.split.tall > div:nth-child(2),
 .figure.split.tall > div:nth-child(3){
-  aspect-ratio:4/3;
+  aspect-ratio:auto;
 }
 
   .figure.process .ph{
