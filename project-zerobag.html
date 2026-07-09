@@ -87,14 +87,16 @@
 .figure.split.tall{
   display:grid;
   grid-template-columns:1fr 1fr;
-  grid-template-rows:1fr 1fr;
   gap:2px;
+  background:transparent;
 }
 
-.figure.split.tall > div:nth-child(1){
-  aspect-ratio:4/3;
+.figure.split.tall > div{
+  background:var(--tint);
+  overflow:hidden;
 }
 
+.figure.split.tall > div:nth-child(1),
 .figure.split.tall > div:nth-child(2){
   aspect-ratio:4/3;
 }
@@ -102,7 +104,7 @@
 .figure.split.tall > div:nth-child(3){
   grid-column:2;
   grid-row:1 / span 2;
-  aspect-ratio:3/5;
+  aspect-ratio:2/3;
 }
 
   .figure.process .ph{
