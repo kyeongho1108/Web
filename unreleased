@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noimageindex">
+<title>Unreleased — Kyeongho Park</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
+<style>
+  :root{
+    --bg:#DDDDD9;
+    --ink:#111110;
+    --muted:#74746D;
+    --line:#C9C9C4;
+    --sidebar:240px;
+  }
+
+  *{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+  }
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Pretendard Variable",Pretendard,system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{
+    color:inherit;
+    text-decoration:none;
+  }
+
+  .sidebar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:var(--sidebar);
+    height:100vh;
+    padding:32px 28px;
+    display:flex;
+    flex-direction:column;
+    border-right:1px solid var(--line);
+    background:var(--bg);
+  }
+
+  .sidebar .name{
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:-.02em;
+    margin-bottom:28px;
+  }
+
+  .sidebar nav{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+
+  .sidebar nav a{
+    font-size:15px;
+    transition:color .2s;
+  }
+
+  .sidebar nav a:hover{
+    color:var(--muted);
+  }
+
+  .sidebar .foot{
+    margin-top:auto;
+    font-size:12px;
+    color:var(--muted);
+    line-height:1.4;
+  }
+
+  main{
+    margin-left:var(--sidebar);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+  }
+
+  .message{
+    text-align:center;
+  }
+
+  .message h1{
+    font-size:24px;
+    font-weight:600;
+    letter-spacing:-.02em;
+    margin-bottom:8px;
+  }
+
+  .message p{
+    font-size:16px;
+    color:var(--muted);
+  }
+
+  .back{
+    display:inline-block;
+    margin-top:28px;
+    font-size:15px;
+    border-bottom:1px solid var(--ink);
+    line-height:1.3;
+    transition:opacity .2s;
+  }
+
+  .back:hover{
+    opacity:.5;
+  }
+
+  @media (max-width:760px){
+
+    .sidebar{
+      position:static;
+      width:auto;
+      height:auto;
+      flex-direction:row;
+      align-items:center;
+      justify-content:space-between;
+      padding:18px 20px;
+    }
+
+    .sidebar .name{
+      margin-bottom:0;
+      font-size:18px;
+    }
+
+    .sidebar nav{
+      flex-direction:row;
+      gap:16px;
+    }
+
+    .sidebar .foot{
+      display:none;
+    }
+
+    main{
+      margin-left:0;
+      min-height:calc(100vh - 65px);
+      padding:24px;
+    }
+
+    .message h1{
+      font-size:21px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+  <aside class="sidebar">
+    <a href="index.html" class="name">Kyeongho Park</a>
+
+    <nav>
+      <a href="index.html">Projects</a>
+      <a href="information.html">Information</a>
+    </nav>
+
+    <div class="foot">
+      © 2026 Kyeongho Park<br>
+      Portfolio
+    </div>
+  </aside>
+
+  <main>
+    <div class="message">
+
+      <h1>This project is not public yet.</h1>
+
+      <p>
+        More information will be available soon.
+      </p>
+
+      <a href="index.html" class="back">
+        ← Back to Projects
+      </a>
+
+    </div>
+  </main>
+
+</body>
+</html>
