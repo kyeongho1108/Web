@@ -134,6 +134,19 @@
   .meta-row .credit{color:var(--muted);margin-top:6px;}
   .meta-row .desc{font-size:17px;line-height:1.62;}
 
+  .awards{
+    display:flex;
+    align-items:center;
+    gap:26px;
+    margin-top:30px;
+  }
+  .awards img{
+    height:80px;
+    width:auto;
+    object-fit:contain;
+    display:block;
+  }
+
   .caption{
     padding-top:var(--caption-space);
     color:var(--ink);
@@ -173,6 +186,8 @@
     .sidebar .foot{display:none;}
     main{margin-left:0;}
     .figure.split{grid-template-columns:1fr;}
+    .awards{margin-top:22px;gap:20px;}
+    .award-idea{height:39px;}
   }
 
   a:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
@@ -212,6 +227,10 @@
           <div class="reveal">
             <div class="title">Zero Bag (2023)</div>
             <div class="credit">Designed by Kyeongho Park, Yejin Heo</div>
+
+            <div class="awards">
+              <img class="award-idea" src="images/award/LEXUS_Award.png" alt="LEXUS_Award">
+            </div>
           </div>
           <p class="desc reveal">
            Zero Bag is a water-soluble package made from seaweed extract that reduces the use of synthetic materials for a more sustainable future.
