@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noimageindex">
-<title>Zero Bag</title>
+<title>Oy</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
@@ -62,10 +62,10 @@
     overflow:hidden;
     background:var(--tint);
   }
-  .hero-media iframe{
+  .hero-media img{
     width:100%;
     height:100%;
-    border:0;
+    object-fit:cover;
     display:block;
   }
 
@@ -84,68 +84,11 @@
     margin-top:2px;
   }
 
-.figure.split.tall{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:2px;
-  background:transparent;
-}
-
-.figure.split.tall > div{
-  background:var(--tint);
-  overflow:hidden;
-}
-
-  .figure.split.tall > div:nth-child(3){
-  grid-column:1;
-  grid-row:1 / span 2;
-  aspect-ratio:2/3;
-}
-
-.figure.split.tall > div:nth-child(1),
-.figure.split.tall > div:nth-child(2){
-  aspect-ratio:4/3;
-}
-
-
-
-  .figure.process .ph{
-    aspect-ratio:16/10;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#C4C4BE;
-    font-size:15px;
-    letter-spacing:.04em;
-  }
-  .figure.split .ph{
-    height:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#C4C4BE;
-    font-size:15px;
-    letter-spacing:.04em;
-  }
-
   .block{padding:var(--block-space) 0;}
   .meta-row{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
   .meta-row .title{font-size:22px;font-weight:600;letter-spacing:-.01em;line-height:1.35;}
   .meta-row .credit{color:var(--muted);margin-top:6px;}
   .meta-row .desc{font-size:17px;line-height:1.62;}
-
-  .awards{
-    display:flex;
-    align-items:center;
-    gap:26px;
-    margin-top:30px;
-  }
-  .awards img{
-    height:80px;
-    width:auto;
-    object-fit:contain;
-    display:block;
-  }
 
   .caption{
     padding-top:var(--caption-space);
@@ -186,8 +129,6 @@
     .sidebar .foot{display:none;}
     main{margin-left:0;}
     .figure.split{grid-template-columns:1fr;}
-    .awards{margin-top:22px;gap:20px;}
-    .award-idea{height:39px;}
   }
 
   a:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
@@ -211,62 +152,54 @@
   <main>
     <div class="page-frame">
 
-      <figure class="figure hero">
+      <figure class="figure hero clip">
         <div class="hero-media">
-          <iframe
-          src="https://www.youtube.com/embed/Dd4kXb3uLuQ?autoplay=1&mute=1&loop=1&playlist=Dd4kXb3uLuQ"
-          title="Zero Bag video"
-          allow="autoplay; accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-          </iframe>
+          <img src="images/oyster/Oyster.webp" alt="Oy oyster shell buoy">
         </div>
       </figure>
 
       <section class="block">
         <div class="meta-row">
           <div class="reveal">
-            <div class="title">Zero Bag (2023)</div>
-            <div class="credit">Designed by Kyeongho Park, Yejin Heo</div>
-
-            <div class="awards">
-              <img class="award-idea" src="images/award/LEXUS_Award.png" alt="LEXUS_Award">
-            </div>
+            <div class="title">Oy (2024)</div>
+            <div class="credit">Designed by Kyeongho Park</div>
           </div>
           <p class="desc reveal">
-           Zero Bag is a water-soluble package made from seaweed extract that reduces the use of synthetic materials for a more sustainable future.
+            Oy is an oyster shell–based buoy designed to replace plastic aquaculture buoys. At the end of its life, it sinks and becomes an artificial reef, supporting marine biodiversity instead of generating waste. Free of toxins, Oy creates a regenerative cycle that benefits both fisheries and the ocean ecosystem.
           </p>
         </div>
       </section>
-      
-      <figure class="figure split tall section-gap">
-      <div>
-        <img src="images/zerobag/foot1.webp" alt="">
-      </div>
-      <div>
-      <img src="images/zerobag/foot2.webp" alt="">
-      </div>
-      <div>
-      <img src="images/zerobag/foot3.webp" alt="">
-      </div>
-</figure>
-      <p class="caption reveal right" style="padding-top:0;">
-      Put, Split, Clean,
-      </p>
+
       <figure class="figure split section-gap">
         <div>
-          <img src="images/zerobag/foot4.webp" alt="">
+          <img src="images/oyster/foot1.webp" alt="Oy image 1">
         </div>
         <div>
-          <img src="images/zerobag/foot4.5.webp" alt="">
+          <img src="images/oyster/foot2.webp" alt="Oy image 2">
         </div>
       </figure>
-      <p class="caption reveal right" style="padding-top:0;">
-      Material experiment
-      </p>
+
+      <figure class="figure split section-gap">
+        <div>
+          <img src="images/oyster/foot3.webp" alt="Oy image 3">
+        </div>
+        <div>
+          <img src="images/oyster/foot4.webp" alt="Oy image 4">
+        </div>
+      </figure>
+
+      <figure class="figure split section-gap">
+        <div>
+          <img src="images/oyster/foot5.webp" alt="Oy image 5">
+        </div>
+        <div>
+          <img src="images/oyster/foot6.webp" alt="Oy image 6">
+        </div>
+      </figure>
 
       <nav class="pager">
-        <a href="project-bubble.html">&larr; Previous Project</a>
-        <a href="project-oyster.html">Next Project &rarr;</a>
+        <a href="project-zerobag.html">&larr; Previous Project</a>
+        <a href="project-frog.html">Next Project &rarr;</a>
       </nav>
 
     </div>
