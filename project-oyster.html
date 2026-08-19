@@ -90,6 +90,23 @@
   .meta-row .credit{color:var(--muted);margin-top:6px;}
   .meta-row .desc{font-size:17px;line-height:1.62;}
 
+  .awards{
+    display:flex;
+    align-items:center;
+    gap:26px;
+    margin-top:30px;
+  }
+  .awards img{
+    height:80px;
+    width:auto;
+    object-fit:contain;
+    display:block;
+  }
+  .awards img.award-if,
+  .awards img.award-ksyda{
+    height:50px;
+  }
+
   .caption{
     padding-top:var(--caption-space);
     color:var(--ink);
@@ -129,6 +146,9 @@
     .sidebar .foot{display:none;}
     main{margin-left:0;}
     .figure.split{grid-template-columns:1fr;}
+    .awards{margin-top:22px;gap:20px;}
+    .awards img.award-if,
+    .awards img.award-ksyda{height:42px;}
   }
 
   a:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
@@ -163,6 +183,11 @@
           <div class="reveal">
             <div class="title">Oy (2024)</div>
             <div class="credit">Designed by Kyeongho Park</div>
+
+            <div class="awards">
+              <img class="award-if" src="images/award/iF_Award.png" alt="iF Design Award">
+              <img class="award-ksyda" src="images/award/KSYDA_Award.png" alt="KSYDA Award">
+            </div>
           </div>
           <p class="desc reveal">
             Oy is an oyster shell–based buoy designed to replace plastic aquaculture buoys. At the end of its life, it sinks and becomes an artificial reef, supporting marine biodiversity instead of generating waste. Free of toxins, Oy creates a regenerative cycle that benefits both fisheries and the ocean ecosystem.
