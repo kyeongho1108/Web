@@ -68,6 +68,12 @@
     object-fit:cover;
     display:block;
   }
+  .hero-media iframe{
+    width:100%;
+    height:100%;
+    border:0;
+    display:block;
+  }
 
   .figure.split{
     display:grid;
@@ -172,9 +178,15 @@
   <main>
     <div class="page-frame">
 
-      <figure class="figure hero clip">
+      <figure class="figure hero">
         <div class="hero-media">
-          <img src="images/oyster/Oyster.webp" alt="Oy oyster shell buoy">
+          <iframe
+            src="https://www.youtube.com/embed/92oE9TDHakM?autoplay=1&mute=1&loop=1&playlist=92oE9TDHakM&playsinline=1"
+            title="Oy video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen>
+          </iframe>
         </div>
       </figure>
 
